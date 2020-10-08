@@ -6,6 +6,11 @@ dev_es_user:
 dev_es_pass:
 kibana_package: kibana-oss
 
+enable_kibana_repo: 1
+kibana_repo_file_name: /etc/yum.repos.d/cobler.repo
+kibana_repo_name: kibana-repo
+
+
 kibana_config:
     server.name: "{{ inventory_hostname }}"
     server.port: 5601
