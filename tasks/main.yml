@@ -1,4 +1,11 @@
 ---
+- name: enable repo
+  replace:
+    path: "{{ kibana_repo_file_name }}"
+    regexp: '0'
+    after: 'enabled='
+    replace: "{{ enable_kibana_repo }}"
+
 - name: Install Kibana.
   yum:
     name: "{{kibana_package}}"
@@ -17,3 +24,4 @@
     group: "{{ group }}"
     mode: 0644
   notify: restart kibana
+~
