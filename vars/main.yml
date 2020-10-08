@@ -1,0 +1,15 @@
+---
+user: root 
+group: root
+dev_elasticsearch_host: "http://localhost:9200" 
+dev_es_user:
+dev_es_pass:
+kibana_package: kibana-oss
+
+kibana_config:
+    server.name: "{{ inventory_hostname }}"
+    server.port: 5601
+    server.host: "{{ ansible_default_ipv4.address }}"
+    elasticsearch.hosts: "{{ dev_elasticsearch_host }}"
+    #elasticsearch.username: "{{ dev_es_user}}"
+    #elasticsearch.password: "{{ dev_es_pass }}"

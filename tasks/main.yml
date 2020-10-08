@@ -1,0 +1,19 @@
+---
+- name: Install Kibana.
+  yum:
+    name: "{{kibana_package}}"
+    state: present
+
+- name: Ensure Kibana is started and enabled at boot.
+  service:
+    name: kibana
+    enabled: yes
+
+- name: Copy Kibana configuration.
+  template:
+    src: kibana.yml.j2
+    dest: /etc/kibana/kibana.yml
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  notify: restart kibana
